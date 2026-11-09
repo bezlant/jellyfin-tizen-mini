@@ -45,7 +45,7 @@ rsvg-convert -w 117 -h 117 -o icon.png logo.svg
 
 Luma retains the original `HomeCinema.player` application ID, `HomeCinema` package and `home-cinema-*` storage keys so updates preserve existing installations. The first branded update discovers the previous server from the single saved token-key name, then remembers it explicitly. A new installation starts with an empty server field.
 
-On the tested TV, the existing native Auto-Start setting stores the app's **display name**. It must be `Luma` after renaming. That native path has opened the movie app after a real boot and after standby/wake. This is device-specific evidence, not a portable launcher API or an every-power-cycle guarantee. Luma does not install a boot service or replace Samsung's system shell. The physical Menu button still opens TV settings.
+**Automatic launch at power-on is currently unreliable.** The owner reproduced an off/on cycle where the app did not open and had to launch it manually. The native startup setting and installed app title both read `Luma`; matching those values is not enough to establish working startup. Earlier captures of the app after wake did not adequately exclude manual intervention. Investigation is ongoing. Luma does not install a boot service or replace Samsung's system shell. The physical Menu button still opens TV settings.
 
 ## Privacy and recovery
 
