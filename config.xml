@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="https://local.home/cinema" version="0.1.0" viewmodes="maximized">
+    <tizen:application id="HomeCinema.player" package="HomeCinema" required_version="2.3"/>
+    <name>Luma</name>
+    <icon src="icon.png"/>
+    <content src="index.html"/>
+    <tizen:profile name="tv-samsung"/>
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+    <tizen:privilege name="http://tizen.org/privilege/tv.inputdevice"/>
+    <tizen:privilege name="http://developer.samsung.com/privilege/avplay"/>
+    <tizen:metadata key="http://samsung.com/tv/metadata/prelaunch.support" value="false"/>
+    <tizen:setting screen-orientation="landscape" context-menu="disable" background-support="disable" encryption="disable" install-location="auto" hwkey-event="enable"/>
+    <tizen:content-security-policy>default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src *;</tizen:content-security-policy>
+    <tizen:allow-mixed-content>true</tizen:allow-mixed-content>
+    <access origin="*" subdomains="true"/>
+</widget>

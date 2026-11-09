@@ -1,0 +1,17 @@
+dist/
+*.wgt
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.db
+*.sqlite*
+*.localstorage*
+*.log
+.env
+.env.*
+.DS_Store
+__pycache__/
+certs/

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Luma</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <object id="av-player" type="application/avplayer"></object>
+    <main id="shell">
+        <section id="login" class="screen">
+            <div class="intro"><h1><img class="brand-mark" src="logo.svg" width="88" height="88" alt="">Luma</h1><p>Your movies. Your evening.<br>Connect to Jellyfin to begin.</p></div>
+            <form id="login-form">
+                <label for="server">Jellyfin server</label><input id="server" type="url" placeholder="http://your-server:8096" autocomplete="url" spellcheck="false">
+                <label for="username">Username</label><input id="username" autocomplete="username" spellcheck="false">
+                <label for="password">Password</label><input id="password" type="password" autocomplete="current-password">
+                <button class="primary" id="connect" type="submit">Open my library</button>
+            </form>
+        </section>
+        <section id="library" class="screen hidden">
+            <div id="movie-grid" aria-label="Movies" tabindex="-1"></div>
+            <span id="page-label"></span>
+        </section>
+        <section id="detail" class="screen hidden" tabindex="-1" aria-labelledby="movie-title">
+            <div id="detail-backdrop" aria-hidden="true"></div>
+            <div class="detail-copy">
+                <h1 id="movie-title"></h1>
+                <p id="movie-meta"></p><p id="movie-genres"></p>
+                <p id="movie-overview" tabindex="-1" aria-label="Movie synopsis"></p>
+                <div class="detail-actions">
+                    <button id="play" class="primary" type="button"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 4v16l14-8z"/></svg><span id="play-label">Play</span></button>
+                    <button id="restart" class="hidden" type="button">Start over</button>
+                    <button id="subtitles" type="button">Subtitles: Off</button>
+                </div>
+            </div>
+        </section>
+        <p id="notice" role="status" aria-live="polite"></p>
+    </main>
+    <section id="playback" class="hidden" aria-label="Movie player">
+        <div id="player-status" role="status"></div>
+        <div id="subtitle-cue" aria-live="off"></div>
+        <div id="player-controls">
+            <span id="player-title"></span>
+            <div id="player-progress" role="progressbar" aria-label="Playback position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="player-progress-fill"></span></div>
+            <div id="player-transport">
+                <button id="pause" type="button"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path class="pause-bars" fill="currentColor" d="M6 4h4v16H6zm8 0h4v16h-4z"/><path class="play-arrow" fill="currentColor" d="M7 4v16l14-8z"/></svg><span id="pause-label">Pause</span></button><span id="player-times"><span id="player-time"></span><span id="player-total"><span class="player-divider"> / </span><span id="player-duration"></span></span></span>
+                <span id="player-remaining"></span>
+            </div>
+        </div>
+    </section>
+    <script src="$WEBAPIS/webapis/webapis.js"></script>
+    <script src="core.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
