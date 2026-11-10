@@ -4,7 +4,7 @@
 
 A small, movies-first Jellyfin client for an older Samsung TV. Open the app, choose a film, watch. Built with plain HTML, CSS and ES5 JavaScript, with no bundled runtime dependencies or web fonts.
 
-This repository is currently private. The source and original logo are prepared for release under the [MIT license](LICENSE).
+The source and original logo are available under the [MIT license](LICENSE).
 
 ## What it does
 
