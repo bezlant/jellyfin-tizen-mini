@@ -23,7 +23,7 @@
         var xhr = new XMLHttpRequest();
         xhr.open(method, url(path), true);
         xhr.timeout = 65000;
-        xhr.setRequestHeader('Authorization', 'MediaBrowser Client="Luma", Device="Samsung J6200", DeviceId="home-cinema-j6200", Version="0.1.0"' + (token ? ', Token="' + token + '"' : ''));
+        xhr.setRequestHeader('Authorization', 'MediaBrowser Client="Movies", Device="Samsung J6200", DeviceId="home-cinema-j6200", Version="0.1.0"' + (token ? ', Token="' + token + '"' : ''));
         if (body !== null) { xhr.setRequestHeader('Content-Type', 'application/json'); }
         xhr.onload = function () {
             if (xhr.status < 200 || xhr.status >= 300) { done(new Error(xhr.status === 401 ? 'Sign in again to continue.' : 'Jellyfin returned HTTP ' + xhr.status + '.')); return; }
@@ -77,7 +77,7 @@
             grid.appendChild(button);
         });
         text('page-label', movies.length ? (start + 1) + '–' + Math.min(start + PAGE_SIZE, movies.length) + ' of ' + movies.length : 'No movies');
-        if (!movies.length) { notice('No movies in this library yet. Add movies in Jellyfin, then reopen Luma.'); }
+        if (!movies.length) { notice('No movies in this library yet. Add movies in Jellyfin, then reopen Movies.'); }
         focusLibrary();
     }
     function loadLibrary() {

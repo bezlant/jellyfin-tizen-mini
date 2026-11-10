@@ -1,10 +1,10 @@
-<img src="logo.svg" width="80" height="80" alt="Luma cinema light symbol">
+<img src="logo.svg" width="80" height="80" alt="Cinema light symbol">
 
-# Luma
+# Movies — Jellyfin Tizen Mini
 
 A small, movies-first Jellyfin client for an older Samsung TV. Open the app, choose a film, watch. Built with plain HTML, CSS and ES5 JavaScript, with no bundled runtime dependencies or web fonts.
 
-This repository is a private source backup. A public release and its license have not been finalized.
+This repository is currently private. The source and original logo are prepared for release under the [MIT license](LICENSE).
 
 ## What it does
 
@@ -33,7 +33,7 @@ node --check core.js
 python3 tools/package.py
 ```
 
-The packager creates **an unsigned widget**, `dist/Luma.unsigned.wgt`, containing only the seven runtime assets. Sign it with your own Samsung/Tizen signing profile before installation. See Samsung's [TV application configuration](https://developer.samsung.com/smarttv/develop/guides/fundamentals/configuring-tv-applications.html) and [certificate guide](https://developer.samsung.com/smarttv/develop/getting-started/setting-up-sdk/creating-certificates.html). Signing tools, certificates, credentials and installed binaries are deliberately kept outside this repository.
+The packager creates **an unsigned widget**, `dist/Movies.unsigned.wgt`, containing only the seven runtime assets. Sign it with your own Samsung/Tizen signing profile before installation. See Samsung's [TV application configuration](https://developer.samsung.com/smarttv/develop/guides/fundamentals/configuring-tv-applications.html) and [certificate guide](https://developer.samsung.com/smarttv/develop/getting-started/setting-up-sdk/creating-certificates.html). Signing tools, certificates, credentials and installed binaries are deliberately kept outside this repository.
 
 `logo.svg` is the original vector master. The committed `icon.png` is its 117×117 rendering for the TV launcher. To regenerate it with librsvg:
 
@@ -43,9 +43,11 @@ rsvg-convert -w 117 -h 117 -o icon.png logo.svg
 
 ## Installation and startup
 
-Luma retains the original `HomeCinema.player` application ID, `HomeCinema` package and `home-cinema-*` storage keys so updates preserve existing installations. The first branded update discovers the previous server from the single saved token-key name, then remembers it explicitly. A new installation starts with an empty server field.
+Movies retains the original `HomeCinema.player` application ID, `HomeCinema` package and `home-cinema-*` storage keys so updates preserve existing installations. The first branded update discovers the previous server from the single saved token-key name, then remembers it explicitly. A new installation starts with an empty server field.
 
-**Automatic launch at power-on is currently unreliable.** The owner reproduced an off/on cycle where the app did not open and had to launch it manually. The native startup setting and installed app title both read `Luma`; matching those values is not enough to establish working startup. Earlier captures of the app after wake did not adequately exclude manual intervention. Investigation is ongoing. Luma does not install a boot service or replace Samsung's system shell. The physical Menu button still opens TV settings.
+On November 10, the owner left the TV untouched after remote off/on and confirmed that the app opened automatically at about **15 seconds**. An earlier off/on attempt was reported as a failure and followed by a manual launch; its wait duration was not recorded. This is one confirmed unattended wake, not a guarantee for every cycle or other TV models.
+
+The tested TV's native startup setting stores the app's display name, which must match `Movies` after renaming. The client does not install a boot service or replace Samsung's system shell. The physical Menu button still opens TV settings.
 
 ## Privacy and recovery
 
@@ -53,4 +55,4 @@ This repository contains app source, original branding, synthetic subtitle tests
 
 Source control does not back up signing keys or TV account data. Preserve the original signing credentials separately if you need to update an existing installation under the same application identity.
 
-Samsung's web APIs are supplied by the TV; Jellyfin supplies media and metadata at runtime. No third-party runtime library, SDK files or film artwork are bundled in this source backup. Public redistribution still needs an explicit license and provenance review.
+Samsung's web APIs are supplied by the TV; Jellyfin supplies media and metadata at runtime. No third-party runtime library, SDK files or film artwork are bundled. The MIT license covers this repository's source and original logo, not those external platforms or the user's media.
